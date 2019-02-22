@@ -18,16 +18,8 @@ export default class Content extends Component {
 
   changeSelected = tab => this.setState({ selected: tab });
 
-  filterCards = () => {
-     if (this.state.selected === 'all'){
-      return this.state.cards;
-     } else{
-      return this.state.cards.filter(card => {return card.tab === this.state.selected})
-     } 
-  };
-//Ternary Operator Attempt
-  // {this.state.selected === 'all' ? this.state.cards : this.state.cards.filter(card => {return card.tab === this.state.selected})}
-
+  filterCards = () => this.state.selected === 'all' ? this.state.cards : this.state.cards.filter(card => {return card.tab === this.state.selected})
+ 
   render() {
     return (
       <div className="content-container">
